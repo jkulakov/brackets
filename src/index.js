@@ -1,16 +1,24 @@
 module.exports = function check(str, bracketsConfig) {
   const openBrackets = ['(', '{', '[', '1', '3', '5', '7', '8', '|'];
-  const bracketsPair = {
-    [')']: '(',
-    ['}']: '{',
-    [']']: '[',
-    ['|']: '|',
-    ['2']: '1',
-    ['4']: '3',
-    ['6']: '5',
-    ['7']: '7',
-    ['8']: '8'
-  };
+  // const bracketsPair = {
+  //   [')']: '(',
+  //   ['}']: '{',
+  //   [']']: '[',
+  //   ['|']: '|',
+  //   ['2']: '1',
+  //   ['4']: '3',
+  //   ['6']: '5',
+  //   ['7']: '7',
+  //   ['8']: '8'
+  // };
+
+  const bracketsPair = {};
+
+  for (let j = 0; j < bracketsConfig.length; j++) {
+    bracketsPair[bracketsConfig[j][1]] = bracketsConfig[j][0];
+  }
+
+  console.log(bracketsPair);
 
   let stack = [];
 
